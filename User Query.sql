@@ -1,0 +1,6 @@
+﻿CREATE TABLE Users (
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    PasswordHash NVARCHAR(256) NOT NULL,
+    Role NVARCHAR(20) NOT NULL -- 'Admin' or 'User'
+);

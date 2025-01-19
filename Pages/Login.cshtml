@@ -1,0 +1,34 @@
+﻿@page
+@model sample_1.Pages.LoginModel
+@{
+	ViewData["Title"] = "Login Page";
+}
+<head>
+    <link rel="stylesheet" href="/css/login.css" />
+</head>
+<div class="login-page">
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="username">Register Number</label>
+                <input type="text" id="RegisterNo" name="RegisterNo" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Date of Birth</label>
+                <input type="text" id="Dob" name="Dob" class="form-control" required />
+            
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>
+@if (!ModelState.IsValid && ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger mt-2">
+        @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}

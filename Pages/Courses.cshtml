@@ -1,0 +1,49 @@
+﻿@page
+@model sample_1.Pages.CoursesModel
+@{
+    ViewData["Title"] = "Available Courses";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h2>Courses</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+@if (Model.RelevantCourses.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Enroll</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.RelevantCourses)
+            {
+                <tr>
+                    <td>@course.CourseName</td>
+                    <td>@course.CourseDescription</td>
+                    <td>@course.Semester</td>
+                    <td>@course.Year</td>
+                    <td>
+
+                        <a asp-page="/Enroll" asp-route-courseId="@course.CourseId" class="btn btn-primary">Enroll</a>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No courses available for your year and semester.</p>
+}

@@ -1,0 +1,41 @@
+﻿@page
+@model sample_1.Pages.EnrollModel
+@{
+    ViewData["Title"] = "Enroll in Course";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="regNo">Registration Number</label>
+        <input type="text" class="form-control" id="regNo" name="RegNo" required />
+    </div>
+
+    <div class="form-group">
+        <label for="selectedCourseId">Select Course</label>
+        <select class="form-control" id="selectedCourseId" name="SelectedCourseId" required>
+            <option value="">Select a course</option>
+            @foreach (var course in Model.Courses)
+            {
+                <option value="@course.CourseId">@course.CourseName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

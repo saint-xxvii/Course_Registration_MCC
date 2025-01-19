@@ -1,0 +1,79 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+    <head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true">
+    </head>
+    <section id="hero">
+    <h2>Hello, @User.Identity.Name !</h2>
+    <h2>Welcome to the MCC - UG General Course Registration Portal</h2>
+        <p>Register for your general courses seamlessly and efficiently</p>
+        <a asp-page="/courses">Get Started</a>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <img src="images/campus2.jpeg" alt="Feature 1" />
+            <h3>Wide Range of Courses</h3>
+            <p>Choose from a variety of programs designed to meet your needs.</p>
+        </div>
+        <div class="feature">
+            <img src="images/Miller%20memorial%20lib.jpeg" alt="Feature 2" />
+            <h3>Expert Instructors</h3>
+            <p>Learn from the best in the industry to enhance your skills.</p>
+        </div>
+        <div class="feature">
+            <img src="images/gutters.png" alt="Feature 3" />
+            <h3>Flexible Learning</h3>
+            <p>Study at your own pace with our flexible course schedules.</p>
+        </div>
+    </section>
+
+    <section class="carousel">
+        <h2>Popular Courses</h2>
+        <div class="course">
+            <img src="images/coding illus.jpeg" alt="Course 1" />
+            <p>Web Development</p>
+        </div>
+        <div class="course">
+            <img src="images/yoga.jpeg" alt="Course 2" />
+            <p>Yoga and Exercise</p>
+        </div>
+        <div class="course">
+            <img src="images/Animation of Artist.jpeg" alt="Course 3" />
+            <p>Creative Painting</p>
+        </div>
+    </section>
+    <section id="courses">
+        <div class="container">
+            <h2>Our Courses</h2>
+            <div class="course-list">
+                <div class="course-item">
+                    <h3><a href="UG1.aspx">UG-I</a></h3>
+                    <p>Semester 1 and 2 contains General Courses.</p>
+
+                </div>
+                <div class="course-item">
+                    <h3><a href="UG1.aspx">UG-II</a></h3>
+                    <p>Semester 3 and 4 contains Inter Disciplinary and Personality Development Courses.</p>
+                </div>
+                <div class="course-item">
+                    <h3><a href="UG1.aspx">UG-III</a></h3>
+                    <p>Semester 5 contains General Elective Courses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial">
+            <p>"The courses are well-structured and easy to follow. I learned a lot!"</p>
+            <span>- Jayalakshmi</span>
+        </div>
+        <div class="testimonial">
+            <p>"The instructors are very knowledgeable and supportive."</p>
+            <span>- Priya</span>
+        </div>
+    </section>
