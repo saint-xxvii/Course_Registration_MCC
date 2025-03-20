@@ -83,8 +83,17 @@ namespace sample_1.Pages
             var course = _db.Course_Details.FirstOrDefault(c => c.CourseId == SelectedCourseId);
             var subject = "Course Registration Confirmation";
             var body = $@"
-                <h2>Course Enrollment Confirmation</h2>
+                <h2>Course Enrollment Confirmation – Madras Christian College</h2>
                 <p>Dear Student,</p>
+                <p>We are pleased to inform you that your enrollment for the current semester at <strong>Madras Christian College</strong> has been successfully processed. Please find the details of your course enrollment below for your reference:</p>
+                <p><strong>Register Number:</strong>{registerNo}</p>
+                <p><strong>Course Name:</strong>{course?.CourseName}</p>
+                <p><strong>Course ID:</strong>{course?.CourseId}</p>
+                <p><strong>Enrolled Date:</strong>{registeredCourse?.EnrollmentDate}</p>
+                <p>We wish you a successful and enriching semester ahead!</p>
+                <p>Best regards,</p>
+                <br>Madras Christian College<br>  
+                <a href=""mailto:contact@mcc.edu.in"">contact@mcc.edu.in</a> |  +91-9840 2556</p>
                 <p>You have successfully enrolled in the course: <strong>{course?.CourseName}</strong>.</p>
                 <p>We appreciate your interest in learning and wish you success!</p>
                 <p>Regards,<br>College Admin</p>
