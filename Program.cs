@@ -2,12 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using sample_1.Data; // Replace with your actual namespace
 using Microsoft.AspNetCore.Authentication.Cookies;
+using sample_1.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+// Adding email service
+builder.Services.AddSingleton<EmailService>();
 
 // Add the database context and configure SQL Server connection.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

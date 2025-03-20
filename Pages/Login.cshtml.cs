@@ -19,7 +19,7 @@ namespace sample_1.Pages
 
         public void OnGet()
         {
-            // Optionally, clear any existing authentication cookies
+            
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
 

@@ -344,3 +344,4 @@ C:\Users\ragur\source\repos\sample_1\obj\Debug\net8.0\refint\sample_1.dll
 C:\Users\ragur\source\repos\sample_1\obj\Debug\net8.0\sample_1.pdb
 C:\Users\ragur\source\repos\sample_1\obj\Debug\net8.0\sample_1.genruntimeconfig.cache
 C:\Users\ragur\source\repos\sample_1\obj\Debug\net8.0\ref\sample_1.dll
+C:\Users\ragur\source\repos\sample_1\obj\Debug\net8.0\sample_1.sourcelink.json

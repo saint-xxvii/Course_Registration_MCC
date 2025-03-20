@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using sample_1.Data;
+using sample_1.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,19 @@ namespace sample_1.Pages
     public class EnrollModel : PageModel
     {
         private readonly ApplicationDbContext _db;
+        private readonly EmailService _emailService;
 
-        public EnrollModel(ApplicationDbContext db)
+        public EnrollModel(ApplicationDbContext db, EmailService emailService)
         {
             _db = db;
+            _emailService = emailService;
         }
 
         [BindProperty]
         public string RegNo { get; set; }
+
+        [BindProperty]
+        public string Email { get; set; }
 
         [BindProperty]
         public int SelectedCourseId { get; set; } // Store the selected CourseId
@@ -72,6 +78,19 @@ namespace sample_1.Pages
             // Add the registered course to the database
             _db.Registered_Course.Add(registeredCourse);
             await _db.SaveChangesAsync();
+
+            // Send Confirmation Email
+            var course = _db.Course_Details.FirstOrDefault(c => c.CourseId == SelectedCourseId);
+            var subject = "Course Registration Confirmation";
+            var body = $@"
+                <h2>Course Enrollment Confirmation</h2>
+                <p>Dear Student,</p>
+                <p>You have successfully enrolled in the course: <strong>{course?.CourseName}</strong>.</p>
+                <p>We appreciate your interest in learning and wish you success!</p>
+                <p>Regards,<br>College Admin</p>
+            ";
+
+            await _emailService.SendEmailAsync(Email, subject, body);
 
             TempData["SuccessMessage"] = "You have successfully enrolled in the course.";
             return RedirectToPage("/Courses"); // Redirect to the courses page or another page
